@@ -13,10 +13,11 @@ function RecipeCreate({ addRecipe }) {
   const [preparation, setPreparation] = useState("");
   
   const handleNameChange = (event) => {setName(event.target.value)};
+  const handleCuisineChange = (event) => {setCuisine(event.target.value)};
   const handlePhotoChange = (event) => {setPhoto(event.target.value)};
   const handleIngredientsChange = (event) => {setIngredients(event.target.value)};
   const handlePreparationChange = (event) => {setPreparation(event.target.value)};
-  const handleCuisineChange = (event) => {setCuisine(event.target.value)};
+  
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,10 +30,10 @@ function RecipeCreate({ addRecipe }) {
     };
     addRecipe(newRecipe);
     setName("");
+    setCuisine("");
     setPhoto("");
     setIngredients("");
     setPreparation("");
-    setCuisine("");
     console.log(newRecipe);
   };
   
@@ -50,6 +51,18 @@ function RecipeCreate({ addRecipe }) {
                 placeholder="Name"
                 onChange={handleNameChange}
                 value={name}
+                size="12"
+              />
+            </td>
+            <td>
+              <input
+                id="cuisine" 
+                required={true} 
+                type="text" 
+                name="cuisine" 
+                placeholder="Cuisine" 
+                onChange={handleCuisineChange} 
+                value={cuisine} 
                 size="12"
               />
             </td>
@@ -89,18 +102,7 @@ function RecipeCreate({ addRecipe }) {
                 size="12"
               />
             </td>
-            <td>
-              <input
-                id="cuisine" 
-                required={true} 
-                type="text" 
-                name="cuisine" 
-                placeholder="Cuisine" 
-                onChange={handleCuisineChange} 
-                value={cuisine} 
-                size="12"
-              />
-            </td>
+            
             <td>
               <button type="submit" onClick={handleSubmit} >Create</button>
             </td>
